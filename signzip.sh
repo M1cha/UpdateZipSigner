@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 INPUT="$1"
 OUTPUT="$3"
@@ -25,7 +25,7 @@ if [ "$KEY" == "" ];then
 fi
 
 WORKING_DIR="$(pwd)"
-SCRIPT_DIR="$(dirname $(realpath /usr/local/bin/signzip))"
+SCRIPT_DIR="$(dirname $(realpath $0))"
 
 echo "Sign $INPUT as $OUTPUT ..."
 java -Xmx4096m -jar $SCRIPT_DIR/signapk.jar -w $SCRIPT_DIR/$KEY.x509.pem $SCRIPT_DIR/$KEY.pk8 "$INPUT" "$OUTPUT"
